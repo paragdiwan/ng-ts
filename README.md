@@ -5,40 +5,41 @@ Angular Controller using Typescript
 - Angular controller is being mapped to Typescript Class and interfaces enforces that 
   we define models , actions that are implemented by a controller class.
     
-   /// <reference path='../_all.ts' />
+   ```angular  
+     /// <reference path='../_all.ts' />
 
-   module MyApplication {
+     module MyApplication {
 
-      export interface IMessage {
-          displayText: string;
-          flag: boolean;
-          changeScopeModel(): void;
-      }
+        export interface IMessage {
+            displayText: string;
+            flag: boolean;
+            changeScopeModel(): void;
+        }
 
 
-      export class DemoMVVMCtrl  implements IMessage {
-          displayText: string;
-          flag: boolean;
-          constructor() {
-              this.displayText = "Welcome to Typescript-";
-              this.flag = true; 
-          }
+        export class DemoMVVMCtrl  implements IMessage {
+            displayText: string;
+            flag: boolean;
+            constructor() {
+                this.displayText = "Welcome to Typescript-";
+                this.flag = true; 
+            }
 
-          changeScopeModel() {
-              this.flag = !this.flag;
+            changeScopeModel() {
+                this.flag = !this.flag;
 
-              if(this.flag) {
-                  this.displayText = "You are loving TS."
-              }
-              else {
-                  this.displayText = "Welcome to Typescript";
-              }
-          }
+                if(this.flag) {
+                    this.displayText = "You are loving TS."
+                }
+                else {
+                    this.displayText = "Welcome to Typescript";
+                }
+            }
 
-      }
+        }
+    }
 
-  }
+    angular.module('app',[])
+            .controller("ListCtrl",MyApplication.DemoMVVMCtrl);
 
-  angular.module('app',[])
-          .controller("ListCtrl",MyApplication.DemoMVVMCtrl);
-
+  ```
