@@ -6,12 +6,19 @@
     
 </head>
 <link rel="stylesheet" type="text/css"   href="styles/bootstrap.css">
-<body ng-app="app">
+<body ng-app="app" ng-cloak>
     <h2> Simple demo NG-TS </h2>
     <div class="container" ng-controller="ListCtrl as vm">
-       <div>{{vm.displayText}}</div>
-       <br>
-       <button type='submit' class='btn btn-primary' ng-click='vm.changeScopeModel()'>Toggle model text</button>
+        <div>
+            <div>{{vm.displayText}}</div>
+            <br>
+            <button type='submit' class='btn btn-primary' ng-click='vm.changeScopeModel()'>Toggle model text</button>
+        </div>
+        <br><br>
+        <div>
+            <div>{{vm.serviceResponse}}</div>
+            <button type='submit' class='btn btn-primary' ng-click='vm.getDataFromService()'>Show Service data</button>
+       </div>
     </div>
 
     <!-- Library Scripts -->
