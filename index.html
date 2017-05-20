@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Simple Angular Typescript application</title>
+ 
+</head>
+
+<body ng-app="app">
+   
+    <div class="container" ng-controller="ListCtrl as vm">
+       {{vm.displayText}}
+       <button ng-click='vm.changeScopeModel()'>Change caption </button>
+    </div>
+
+    <!-- Library Scripts -->
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-resource.js"></script>
+    <script src="scripts/angular-mocks.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    
+    <!-- Application Script -->
+
+    <!-- Domain Classes -->
+
+    <!-- Services -->
+
+    <!-- Controllers -->
+    <script src="app/controllers/ListController.js"></script>
+    
+</body>
+
+</html>
