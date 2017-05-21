@@ -15,8 +15,8 @@
         displayText: string;
         flag: boolean;
         serviceResponse: any;
-        static $inject = ['$http'];
-        constructor(private $http: ng.IHttpService) {
+        static $inject = ['dataAccessService'];
+        constructor(private dataAccessService: common.services.DataAccessService) {
             this.displayText = "Welcome to Typescript";
             this.flag = true; 
         }
@@ -32,19 +32,23 @@
         }
 
         getDataFromService() {
-            this.$http.get("http://date.jsontest.com/")
-                .then((response) => {
+            try {
+                this.dataAccessService.getDataFromResource().then((response) => {
                     try {
                         this.serviceResponse = response.data;
                     }
                     catch (exception) {
                         throw exception;
                     }
-                });
+                })
+            }
+            catch (exception) {
+                throw exception;
+            }
         }
     }
+    
+     angular.module('app', ['common.services'])
+         .controller("ListCtrl", MyApplication.DemoMVVMCtrl);
+         
 }
-
-angular.module('app',[])
-        .controller("ListCtrl",MyApplication.DemoMVVMCtrl);
-
