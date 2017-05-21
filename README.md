@@ -5,6 +5,8 @@ Angular Controller using Typescript
 - This controller demonstrates usuage of '$http' service.
 - Angular controller is being mapped to Typescript Class and interfaces enforces that 
   we define models , actions that are implemented by a controller class.
+  
+  All you need is to paste the entire folder in 'webroot' and run index.html.
    
    Snippet
    --------
