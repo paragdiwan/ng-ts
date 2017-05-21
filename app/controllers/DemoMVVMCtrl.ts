@@ -1,8 +1,10 @@
 
- /// <reference path='../_all.ts' />
-
- module MyApplication {
-
+/// <reference path='../_all.ts' />
+module MyApplication {
+   /**
+     *  An interface enforces that we expose appropriate models and actions required
+     *  on these models to the Controller.
+     */
     export interface IMessage {
         displayText: string;
         flag: boolean;
@@ -10,20 +12,22 @@
         changeScopeModel(): void;
     }
 
-
-    export class DemoMVVMCtrl  implements IMessage {
-        displayText: string;
-        flag: boolean;
-        serviceResponse: any;
+    /**
+     * A Controller class that exposes models via member variables and methods.
+     */
+    export class DemoMVVMCtrl implements IMessage {
+        displayText: string; // Demo MV on the UI.
+        flag: boolean; // Toggle switch
+        serviceResponse: any; // Demo Service response model.
         static $inject = ['dataAccessService'];
         constructor(private dataAccessService: common.services.DataAccessService) {
             this.displayText = "Welcome to Typescript";
-            this.flag = true; 
+            this.flag = true;
         }
 
         changeScopeModel() {
             this.flag = !this.flag;
-            if(this.flag) {
+            if (this.flag) {
                 this.displayText = "You are loving TS."
             }
             else {
@@ -31,6 +35,9 @@
             }
         }
 
+        /**
+         * Talks to remote service to get data.
+         */
         getDataFromService() {
             try {
                 this.dataAccessService.getDataFromResource().then((response) => {
@@ -47,8 +54,9 @@
             }
         }
     }
-    
-     angular.module('app', ['common.services'])
-         .controller("ListCtrl", MyApplication.DemoMVVMCtrl);
-         
+
+    // Create a model along with Service dependency & Register a controller.    
+    angular.module('app', ['common.services'])
+        .controller("DemoMVVMCtrl", MyApplication.DemoMVVMCtrl);
+
 }

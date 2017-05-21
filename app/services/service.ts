@@ -1,19 +1,19 @@
+/**
+ *  Create a common module which exposes Services to the controllers in the application.
+ */
 module common.services {
-
     interface IDataAccessService {
         getDataFromResource();
     }
-
     export class DataAccessService implements IDataAccessService {
 
         static $inject = ['$http'];
-        constructor(private $http:ng.IHttpService) {
+        constructor(private $http: ng.IHttpService) {
         }
-
         getDataFromResource() {
-           return this.$http.get("http://date.jsontest.com/")
+            return this.$http.get("http://date.jsontest.com/")
         }
     }
-        angular.module("common.services",[])       
-           .service("dataAccessService", DataAccessService); 
+    angular.module("common.services", [])
+        .service("dataAccessService", DataAccessService);
 }
