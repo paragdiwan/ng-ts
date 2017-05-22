@@ -1,5 +1,4 @@
 
-/// <reference path='../_all.ts' />
 module MyApplication {
    /**
      *  An interface enforces that we expose appropriate models and actions required
